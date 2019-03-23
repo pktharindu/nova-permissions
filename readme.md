@@ -2,7 +2,7 @@
 
 ![GitHub](https://img.shields.io/github/license/pktharindu/nova-permissions.svg?style=for-the-badge) ![Packagist](https://img.shields.io/packagist/dt/pktharindu/nova-permissions.svg?style=for-the-badge) ![Packagist](https://img.shields.io/packagist/v/pktharindu/nova-permissions.svg?style=for-the-badge)
 
-Add Access Control by means of User based Roles and Permissions to your Nova installation. It allows you to group your Permissions into Groups and attach it to Users.
+Add Permissions based authorization for your Nova installation via User-based Roles and Permissions. Roles are defined in the database whereas Permissions are defined in the code base. It allows you to group your Permissions into Groups and attach it to Users.
 
 This package is inspired by [Silvanite\Brandenburg](https://github.com/Silvanite/brandenburg) as it has clear separation of concerns.
 
