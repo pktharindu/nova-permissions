@@ -17,13 +17,14 @@ As a result, you won't see any _Permissions_ resource. The _Roles_ resource will
 - [Laravel Nova Grouped Permissions (ACL)](#laravel-nova-grouped-permissions-acl)
   - [Installation](#installation)
   - [Permissions with Groups](#permissions-with-groups)
+    - [Index View](#index-view)
     - [Detail View](#detail-view)
     - [Edit View](#edit-view)
   - [Usage](#usage)
     - [Create a Model Policy](#create-a-model-policy)
   - [Credits](#credits)
 
-![Tool Demo](https://raw.githubusercontent.com/Silvanite/novatoolpermissions/master/preview-demo.gif)
+![Tool Demo](https://raw.githubusercontent.com/pktharindu/nova-permissions/master/docs/preview-demo.gif)
 
 ## Installation
 
@@ -190,13 +191,17 @@ A new resource called **Roles** will appear in your Nova app after installing th
 
 ## Permissions with Groups
 
+### Index View
+
+![Detail View](https://raw.githubusercontent.com/pktharindu/nova-permissions/master/docs/index-view.png)
+
 ### Detail View
 
-![image](https://user-images.githubusercontent.com/3426944/50088581-b1a44100-0203-11e9-8ae8-c21cc0b02393.png)
+![Detail View](https://raw.githubusercontent.com/pktharindu/nova-permissions/master/docs/detail-view.png)
 
 ### Edit View
 
-![image](https://user-images.githubusercontent.com/3426944/50088682-0051db00-0204-11e9-8201-1ac4b57f0631.png)
+![Edit View](https://raw.githubusercontent.com/pktharindu/nova-permissions/master/docs/edit-view.png)
 
 ## Usage
 
