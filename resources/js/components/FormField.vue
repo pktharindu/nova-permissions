@@ -5,14 +5,16 @@
   >
     <template slot="field">
       <div class="w-full mb-4">
-        <span
+      <button
+          type="button"
           class="ml-auto btn btn-default mr-3"
           @click="checkAll()"
-        >{{ __('Select all')}}</span>
-        <span
+        >{{ __('Select all')}}</button>
+        <button
+          type="button"
           class="ml-auto btn btn-default"
           @click="uncheckAll()"
-        >{{ __('Do not select any') }}</span>
+        >{{ __('Do not select any') }}</button>
       </div>
       <div
         class="w-full flex flex-wrap -mx-2"
