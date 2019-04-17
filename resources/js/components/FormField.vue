@@ -5,7 +5,7 @@
   >
     <template slot="field">
       <div class="w-full mb-4">
-      <button
+        <button
           type="button"
           class="ml-auto btn btn-default mr-3"
           @click="checkAll()"
