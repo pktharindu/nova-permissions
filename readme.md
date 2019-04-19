@@ -22,6 +22,8 @@ As a result, you won't see any _Permissions_ resource. The _Roles_ resource will
     - [Edit View](#edit-view)
   - [Usage](#usage)
     - [Create a Model Policy](#create-a-model-policy)
+  - [Customization](#customization)
+    - [Use your own Resources](#use-your-own-resources)
   - [Credits](#credits)
 
 ![Tool Demo](https://raw.githubusercontent.com/pktharindu/nova-permissions/master/docs/preview-demo.gif)
@@ -301,6 +303,42 @@ It should now work as exptected. Just create a Role, modify its Permissions and 
 > `view own posts` is superior to `view posts` and allows the User to only view his own posts.
 
 > `manage own posts` is superior to `manage posts` and allows the User to only manage his own posts.
+
+## Customization
+
+### Use your own Resources
+
+If you want to use your own role resource, you can define it when you register the tool:
+
+```php
+// in app/Providers/NovaServiceProvider.php
+
+// ...
+
+use App\Nova\Role;
+
+public function tools()
+{
+    return [
+        // ...
+        \Pktharindu\NovaPermissions\NovaPermissions::make()
+            ->roleResource(Role::class),
+    ];
+}
+```
+
+Then extend the `Pktharindu\NovaPermissions\Nova\Role` in your role resource:
+
+```php
+// in app/Nova/Role.php
+
+use Pktharindu\NovaPermissions\Nova\Role as RoleResource;
+
+class Role extends RoleResource
+{
+    // ...  
+}
+```
 
 ## Credits
 
