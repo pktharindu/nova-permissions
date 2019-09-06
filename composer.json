@@ -1,43 +1,45 @@
 {
-    "name": "pktharindu/nova-permissions",
-    "description": "Laravel Nova Grouped Permissions (ACL)",
-    "keywords": [
-        "laravel",
-        "nova",
-        "tool",
-        "acl",
-        "roles",
-        "permissions",
-        "access control",
-        "gates",
-        "policies",
-        "authentication",
-        "authorization"
-    ],
-    "license": "MIT",
-    "authors": [{
-        "name": "P. K. Tharindu",
-        "email": "pktharindu@outlook.com"
-    }],
-    "require": {
-        "php": ">=7.1.0",
-        "benjaminhirsch/nova-slug-field": "^1.1"
-    },
-    "autoload": {
-        "psr-4": {
-            "Pktharindu\\NovaPermissions\\": "src/"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Pktharindu\\NovaPermissions\\ToolServiceProvider"
-            ]
-        }
-    },
-    "config": {
-        "sort-packages": true
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+  "name": "pktharindu/nova-permissions",
+  "description": "Laravel Nova Grouped Permissions (ACL)",
+  "keywords": [
+    "laravel",
+    "nova",
+    "tool",
+    "acl",
+    "roles",
+    "permissions",
+    "access control",
+    "gates",
+    "policies",
+    "authentication",
+    "authorization"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "P. K. Tharindu",
+      "email": "pktharindu@outlook.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.1.0",
+    "benjaminhirsch/nova-slug-field": "^1.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Pktharindu\\NovaPermissions\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Pktharindu\\NovaPermissions\\ToolServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
