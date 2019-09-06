@@ -92,7 +92,7 @@ class Role extends Resource
             TextWithSlug::make(__('Name'), 'name')
                 ->rules('required')
                 ->sortable()
-                ->slug(__('Slug')),
+                ->slug('slug'),
 
             Slug::make(__('Slug'), 'slug')
                 ->rules('required')
