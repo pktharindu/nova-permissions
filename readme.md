@@ -95,7 +95,6 @@ return [
     | default value but you may easily change it to any table you like.
     */
 
-
     'table_names' => [
         'roles' => 'roles',
 
@@ -354,7 +353,7 @@ use Pktharindu\NovaPermissions\Nova\Role as RoleResource;
 
 class Role extends RoleResource
 {
-    // ...  
+    // ...
 }
 ```
 
