@@ -14,7 +14,7 @@ class ToolServiceProvider extends ServiceProvider
     public function boot(Filesystem $filesystem)
     {
         $this->publishes([
-            __DIR__.'/../config/novapermissions.php' => config_path('novapermissions.php'),
+            __DIR__.'/../config/nova-permissions.php' => config_path('nova-permissions.php'),
         ], 'config');
 
         $this->publishes([
@@ -28,8 +28,8 @@ class ToolServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../config/novapermissions.php',
-            'novapermissions'
+            __DIR__.'/../config/nova-permissions.php',
+            'nova-permissions'
         );
     }
 

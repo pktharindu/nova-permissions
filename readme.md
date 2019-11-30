@@ -57,7 +57,7 @@ php artisan vendor:publish --provider="Pktharindu\NovaPermissions\ToolServicePro
 Configuration file includes some dummy permissions for your refference. Feel free to remove them and add your own permissions.
 
 ```php
-// in config/novapermissions.php
+// in config/nova-permissions.php
 
 <?php
 
@@ -68,7 +68,7 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'userModel' => 'App\User',
+    'user_model' => 'App\User',
 
     /*
     |--------------------------------------------------------------------------
@@ -76,7 +76,7 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'userResource' => 'App\Nova\User',
+    'user_resource' => 'App\Nova\User',
 
     /*
     |--------------------------------------------------------------------------
@@ -84,7 +84,25 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'roleResourceGroup' => 'Other',
+    'role_resource_group' => 'Other',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Database table names
+    |--------------------------------------------------------------------------
+    | When using the "HasRoles" trait from this package, we need to know which
+    | table should be used to retrieve your roles. We have chosen a basic
+    | default value but you may easily change it to any table you like.
+    */
+
+
+    'table_names' => [
+        'roles' => 'roles',
+
+        'role_permission' => 'role_permission',
+
+        'role_user' => 'role_user',
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -144,7 +162,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        foreach (config('novapermissions.permissions') as $key => $permissions) {
+        foreach (config('nova-permissions.permissions') as $key => $permissions) {
             Gate::define($key, function (User $user) use ($key) {
                 if ($this->nobodyHasAccess($key)) {
                     return true;
@@ -292,7 +310,7 @@ class PostPolicy
 
 It should now work as exptected. Just create a Role, modify its Permissions and the Policy should take care of the rest.
 
-> **Note**: Don't forget to add your Policy to your `$policies` in `App\Providers\AuthServiceProvider` and define the permissions in `config\novapermissions.php`.
+> **Note**: Don't forget to add your Policy to your `$policies` in `App\Providers\AuthServiceProvider` and define the permissions in `config\nova-permissions.php`.
 
 > `hasPermissionTo()` method determine if any of the assigned roles to this user have a specific permission.
 

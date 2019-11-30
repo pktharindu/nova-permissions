@@ -27,7 +27,7 @@ class AuthServiceProvider extends ServiceProvider
 
     private function defineGates()
     {
-        foreach (config('novapermissions.permissions') as $key => $permissions) {
+        foreach (config('nova-permissions.permissions') as $key => $permissions) {
             Gate::define($key, function (User $user) use ($key) {
                 if ($this->nobodyHasAccess($key)) {
                     return true;

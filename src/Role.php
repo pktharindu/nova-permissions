@@ -1,170 +1,40 @@
 <?php
 
-namespace Pktharindu\NovaPermissions;
+namespace Pktharindu\NovaPermissions\Providers;
 
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Database\Eloquent\Model;
-use Pktharindu\NovaPermissions\Policies\Policy;
+use Pktharindu\NovaPermissions\Traits\ValidatesPermissions;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
-class Role extends Model
+class AuthServiceProvider extends ServiceProvider
 {
+    use ValidatesPermissions;
     /**
-     * The attributes that are mass assignable.
+     * The policy mappings for the application.
      *
      * @var array
      */
-    protected $fillable = [
-        'slug',
-        'name',
-        'permissions',
-    ];
+    protected $policies = [];
 
     /**
-     * The attributes which should be extended to the model.
-     *
-     * @var array
+     * Register any authentication / authorization services.
      */
-    protected $appends = [
-        'permissions',
-    ];
-
-    /**
-     * Cast attributes to their correct types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'permissions' => 'array',
-    ];
-
-    /**
-     * Get all users which are assigned a specific role.
-     *
-     * @return Illuminate\Support\Collection
-     */
-    public function users()
+    public function boot()
     {
-        return $this->belongsToMany(config('novapermissions.userModel', 'App\User'));
+        $this->registerPolicies();
+        $this->defineGates();
     }
 
-    /**
-     * Returns all Permissions for this Role.
-     *
-     * @return Illuminate\Support\Collection
-     */
-    public function getPermissions()
+    private function defineGates()
     {
-        return $this->hasMany(Permission::class);
-    }
+        foreach (config('nova-permissions.permissions') as $key => $permissions) {
+            Gate::define($key, function (User $user) use ($key) {
+                if ($this->nobodyHasAccess($key)) {
+                    return true;
+                }
 
-    /**
-     * Replace all existing permissions with a new set of permissions.
-     *
-     * @param array $permissions
-     */
-    public function setPermissions(array $permissions)
-    {
-        if (! $this->id) {
-            $this->save();
+                return $user->hasPermissionTo($key);
+            });
         }
-
-        $this->revokeAll();
-
-        collect($permissions)->map(function ($permission) {
-            $this->grant($permission);
-        });
-    }
-
-    /**
-     * Check if a user has a given permission.
-     *
-     * @param string $permission
-     *
-     * @return bool
-     */
-    public function hasPermission($permission)
-    {
-        return $this->getPermissions->contains('permission_slug', $permission);
-    }
-
-    /**
-     * Give Permission to a Role.
-     *
-     * @param string $permission
-     *
-     * @return bool
-     */
-    public function grant($permission)
-    {
-        if ($this->hasPermission($permission)) {
-            return true;
-        }
-
-        if (! array_key_exists($permission, Gate::abilities())) {
-            abort(403, 'Unknown permission');
-        }
-
-        return Permission::create([
-            'role_id'         => $this->id,
-            'permission_slug' => $permission,
-        ]);
-
-        return false;
-    }
-
-    /**
-     * Revokes a Permission from a Role.
-     *
-     * @param string $permission
-     *
-     * @return bool
-     */
-    public function revoke($permission)
-    {
-        if (\is_string($permission)) {
-            return Permission::findOrFail($permission)->delete();
-        }
-
-        return false;
-    }
-
-    /**
-     * Remove all permissions from this Role.
-     */
-    public function revokeAll()
-    {
-        return $this->getPermissions()->delete();
-    }
-
-    /**
-     * Get a list of permissions.
-     *
-     * @return array
-     */
-    public function getPermissionsAttribute()
-    {
-        return Permission::where('role_id', $this->id)->get()->pluck('permission_slug')->toArray();
-    }
-
-    /**
-     * Replace all existing permissions with a new set of permissions.
-     *
-     * @param array $permissions
-     */
-    public function setPermissionsAttribute(array $permissions)
-    {
-        if (! $this->id) {
-            $this->save();
-        }
-
-        $this->revokeAll();
-
-        collect($permissions)->map(function ($permission) {
-            if (! \in_array($permission, Policy::all(), true)) {
-                return;
-            }
-
-            $this->grant($permission);
-        });
     }
 }

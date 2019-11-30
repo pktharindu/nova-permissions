@@ -7,7 +7,7 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'userModel' => 'App\User',
+    'user_model' => 'App\User',
 
     /*
     |--------------------------------------------------------------------------
@@ -15,7 +15,7 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'userResource' => 'App\Nova\User',
+    'user_resource' => 'App\Nova\User',
 
     /*
     |--------------------------------------------------------------------------
@@ -23,7 +23,25 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'roleResourceGroup' => 'Other',
+    'role_resource_group' => 'Other',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Database table names
+    |--------------------------------------------------------------------------
+    | When using the "HasRoles" trait from this package, we need to know which
+    | table should be used to retrieve your roles. We have chosen a basic
+    | default value but you may easily change it to any table you like.
+    */
+
+
+    'table_names' => [
+        'roles' => 'roles',
+
+        'role_permission' => 'role_permission',
+
+        'role_user' => 'role_user',
+    ],
 
     /*
     |--------------------------------------------------------------------------

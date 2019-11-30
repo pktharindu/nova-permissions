@@ -28,7 +28,7 @@ class Role extends Resource
      */
     public static function group()
     {
-        return config('novapermissions.roleResourceGroup', 'Other');
+        return config('nova-permissions.role_resource_group', 'Other');
     }
 
     /**
@@ -102,7 +102,7 @@ class Role extends Resource
 
             Checkboxes::make(__('Permissions'), 'permissions')
                 ->withGroups()
-                ->options(collect(config('novapermissions.permissions'))->map(function ($permission, $key) {
+                ->options(collect(config('nova-permissions.permissions'))->map(function ($permission, $key) {
                     return [
                         'group'        => ucfirst($permission['group']),
                         'option'       => $key,
@@ -115,7 +115,7 @@ class Role extends Resource
                 return \count($this->users);
             })->onlyOnIndex(),
 
-            BelongsToMany::make(__('Users'), 'users', config('novapermissions.userResource', 'App\Nova\User'))
+            BelongsToMany::make(__('Users'), 'users', config('nova-permissions.user_resource', 'App\Nova\User'))
                 ->searchable(),
         ];
     }

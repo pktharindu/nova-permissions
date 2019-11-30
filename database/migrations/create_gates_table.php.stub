@@ -11,14 +11,16 @@ class CreateGatesTable extends Migration
      */
     public function up()
     {
-        // 'admin', 'editor'
-        Schema::create('roles', function (Blueprint $table) {
+        $tableNames = config('nova-permissions.table_names');
+        
+        Schema::create($tableNames['roles'], function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('slug');
             $table->string('name')->nullable();
             $table->timestamps();
         });
-        Schema::create('role_permission', function (Blueprint $table) {
+
+        Schema::create($tableNames['role_permission'], function (Blueprint $table) {
             $table->unsignedBigInteger('role_id');
             $table->string('permission_slug');
             $table->timestamps();
@@ -28,7 +30,8 @@ class CreateGatesTable extends Migration
                   ->onDelete('cascade');
             $table->primary(['role_id', 'permission_slug']);
         });
-        Schema::create('role_user', function (Blueprint $table) {
+
+        Schema::create($tableNames['role_user'], function (Blueprint $table) {
             $table->unsignedBigInteger('role_id');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
@@ -44,6 +47,7 @@ class CreateGatesTable extends Migration
             $table->primary(['role_id', 'user_id']);
         });
     }
+
     /**
      * Reverse the migrations.
      *
@@ -51,8 +55,10 @@ class CreateGatesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('role_permission');
-        Schema::dropIfExists('role_user');
-        Schema::dropIfExists('roles');
+        $tableNames = config('nova-permissions.table_names');
+        
+        Schema::dropIfExists($tableNames['role_permission']);
+        Schema::dropIfExists($tableNames['role_user']);
+        Schema::dropIfExists($tableNames['roles']);
     }
 }
