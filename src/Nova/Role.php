@@ -104,10 +104,10 @@ class Role extends Resource
                 ->withGroups()
                 ->options(collect(config('nova-permissions.permissions'))->map(function ($permission, $key) {
                     return [
-                        'group'        => ucfirst($permission['group']),
+                        'group'        => __($permission['group']),
                         'option'       => $key,
-                        'label'        => $permission['display_name'],
-                        'description'  => $permission['description'],
+                        'label'        => __($permission['display_name']),
+                        'description'  => __($permission['description']),
                     ];
                 })->groupBy('group')->toArray()),
 
