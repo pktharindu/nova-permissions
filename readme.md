@@ -4,6 +4,8 @@
 
 Add Permissions based authorization for your Nova installation via User-based Roles and Permissions. Roles are defined in the database whereas Permissions are defined in the code base. It allows you to group your Permissions into Groups and attach it to Users.
 
+If you like this package, show some love by starring the repo. 🙏
+
 This package is inspired by [Silvanite\Brandenburg](https://github.com/Silvanite/brandenburg) as it has clear separation of concerns.
 
 > _Roles_ are defined in the _Database_
@@ -25,6 +27,7 @@ As a result, you won't see any _Permissions_ resource. The _Roles_ resource will
   - [Customization](#customization)
     - [Use your own Resources](#use-your-own-resources)
   - [Credits](#credits)
+  - [License](#license)
 
 ![Tool Demo](https://raw.githubusercontent.com/pktharindu/nova-permissions/master/docs/preview-demo.gif)
 
@@ -243,14 +246,6 @@ class PostPolicy
 {
     use HandlesAuthorization;
 
-    /**
-     * Determine whether the user can view the post.
-     *
-     * @param \App\User $user
-     * @param \App\Post $post
-     *
-     * @return mixed
-     */
     public function view(User $user, Post $post)
     {
         if ($user->hasPermissionTo('view own posts')) {
@@ -260,26 +255,11 @@ class PostPolicy
         return $user->hasPermissionTo('view posts');
     }
 
-    /**
-     * Determine whether the user can create posts.
-     *
-     * @param \App\User $user
-     *
-     * @return mixed
-     */
     public function create(User $user)
     {
         return $user->hasAnyPermission(['manage posts', 'manage own posts']);
     }
 
-    /**
-     * Determine whether the user can update the post.
-     *
-     * @param \App\User $user
-     * @param \App\Post $post
-     *
-     * @return mixed
-     */
     public function update(User $user, Post $post)
     {
         if ($user->hasPermissionTo('manage own posts')) {
@@ -288,14 +268,6 @@ class PostPolicy
         return $user->hasPermissionTo('manage posts');
     }
 
-    /**
-     * Determine whether the user can delete the post.
-     *
-     * @param \App\User $user
-     * @param \App\Post $post
-     *
-     * @return mixed
-     */
     public function delete(User $user, Post $post)
     {
         if ($user->hasPermissionTo('manage own posts')) {
@@ -320,6 +292,8 @@ It should now work as exptected. Just create a Role, modify its Permissions and 
 > `view own posts` is superior to `view posts` and allows the User to only view his own posts.
 
 > `manage own posts` is superior to `manage posts` and allows the User to only manage his own posts.
+
+Please see the [Laravel Nova documentation](https://nova.laravel.com/docs/2.0/resources/authorization.html) for additional information.
 
 ## Customization
 
@@ -360,3 +334,9 @@ class Role extends RoleResource
 ## Credits
 
 This Package is inspired by [eminiarts/nova-permissions](https://novapackages.com/packages/eminiarts/nova-permissions) and [silvanite/novatoolpermissions](https://novapackages.com/packages/silvanite/novatoolpermissions). I wanted to have a combination of both. Thanks to both authors.
+
+## License
+
+Copyright © 2018-2020 P. K. Tharindu
+
+Licensed under the MIT license, see [LICENSE](https://github.com/pktharindu/nova-permissions/blob/master/LICENSE) for details.
