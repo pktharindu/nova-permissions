@@ -26,6 +26,7 @@ As a result, you won't see any _Permissions_ resource. The _Roles_ resource will
     - [Create a Model Policy](#create-a-model-policy)
   - [Customization](#customization)
     - [Use your own Resources](#use-your-own-resources)
+  - [Support](#support)
   - [Credits](#credits)
   - [License](#license)
 
@@ -330,6 +331,10 @@ class Role extends RoleResource
     // ...
 }
 ```
+
+## Support
+
+If you require any support please contact me on [Twitter](https://twitter.com/CallMeTharindu) or open an issue on this repository.
 
 ## Credits
 
