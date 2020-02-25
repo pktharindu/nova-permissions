@@ -337,6 +337,6 @@ This Package is inspired by [eminiarts/nova-permissions](https://novapackages.co
 
 ## License
 
-Copyright © 2018-2020 P. K. Tharindu
+Copyright © 2018-2020 P. K. Tharindu and contributors
 
-Licensed under the MIT license, see [LICENSE](https://github.com/pktharindu/nova-permissions/blob/master/LICENSE) for details.
+Licensed under the MIT license, see [LICENSE](https://github.com/pktharindu/nova-permissions/blob/master/LICENSE.md) for details.
