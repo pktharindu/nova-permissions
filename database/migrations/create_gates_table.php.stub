@@ -26,7 +26,7 @@ class CreateGatesTable extends Migration
             $table->timestamps();
             $table->foreign('role_id')
                   ->references('id')
-                  ->on('roles')
+                  ->on($tableNames['roles'])
                   ->onDelete('cascade');
             $table->primary(['role_id', 'permission_slug']);
         });
@@ -37,12 +37,12 @@ class CreateGatesTable extends Migration
             $table->timestamps();
             $table->foreign('role_id')
                   ->references('id')
-                  ->on('roles')
+                  ->on($tableNames['roles'])
                   ->onDelete('cascade');
         
             $table->foreign('user_id')
                   ->references('id')
-                  ->on('users')
+                  ->on($tableNames['users'])
                   ->onDelete('cascade');
             $table->primary(['role_id', 'user_id']);
         });
