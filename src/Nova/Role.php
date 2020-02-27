@@ -14,35 +14,15 @@ use Pktharindu\NovaPermissions\Role as RoleModel;
 
 class Role extends Resource
 {
-    /**
-     * The model the resource corresponds to.
-     *
-     * @var string
-     */
     public static $model = RoleModel::class;
 
-    /**
-     * The logical group associated with the resource.
-     *
-     * @var string
-     */
     public static function group()
     {
         return config('nova-permissions.role_resource_group', 'Other');
     }
 
-    /**
-     * The single value that should be used to represent the resource when being displayed.
-     *
-     * @var string
-     */
     public static $title = 'name';
 
-    /**
-     * The columns that should be searched.
-     *
-     * @var array
-     */
     public static $search = [
         'id',
         'slug',
@@ -53,37 +33,16 @@ class Role extends Resource
         'users',
     ];
 
-    /**
-     * Get the actions available for the resource.
-     *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return array
-     */
     public function actions(Request $request)
     {
         return [];
     }
 
-    /**
-     * Get the cards available for the request.
-     *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return array
-     */
     public function cards(Request $request)
     {
         return [];
     }
 
-    /**
-     * Get the fields displayed by the resource.
-     *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return array
-     */
     public function fields(Request $request)
     {
         return [
@@ -96,8 +55,8 @@ class Role extends Resource
 
             Slug::make(__('Slug'), 'slug')
                 ->rules('required')
-                ->creationRules('unique:roles')
-                ->updateRules('unique:roles,slug,{{resourceId}}')
+                ->creationRules('unique:' . config('nova-permissions.table_names.roles', 'roles'))
+                ->updateRules('unique:' . config('nova-permissions.table_names.roles', 'roles') . ',slug,{{resourceId}}')
                 ->sortable(),
 
             Checkboxes::make(__('Permissions'), 'permissions')
@@ -120,13 +79,6 @@ class Role extends Resource
         ];
     }
 
-    /**
-     * Get the filters available for the resource.
-     *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return array
-     */
     public function filters(Request $request)
     {
         return [];
@@ -137,13 +89,6 @@ class Role extends Resource
         return __('Roles');
     }
 
-    /**
-     * Get the lenses available for the resource.
-     *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return array
-     */
     public function lenses(Request $request)
     {
         return [];

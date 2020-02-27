@@ -8,50 +8,32 @@ use Pktharindu\NovaPermissions\Policies\Policy;
 
 class Role extends Model
 {
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'slug',
         'name',
         'permissions',
     ];
 
-    /**
-     * The attributes which should be extended to the model.
-     *
-     * @var array
-     */
     protected $appends = [
         'permissions',
     ];
 
-    /**
-     * Cast attributes to their correct types.
-     *
-     * @var array
-     */
     protected $casts = [
         'permissions' => 'array',
     ];
 
-    /**
-     * Get all users which are assigned a specific role.
-     *
-     * @return Illuminate\Support\Collection
-     */
-    public function users()
+    public function __construct(array $attributes = [])
     {
-        return $this->belongsToMany(config('nova-permissions.user_model', 'App\User'));
+        parent::__construct($attributes);
+
+        $this->setTable(config('nova-permissions.table_names.roles', 'roles'));
     }
 
-    /**
-     * Returns all Permissions for this Role.
-     *
-     * @return Illuminate\Support\Collection
-     */
+    public function users()
+    {
+        return $this->belongsToMany(config('nova-permissions.user_model', 'App\User'), config('nova-permissions.table_names.role_user', 'role_user'), 'role_id', 'user_id');
+    }
+
     public function getPermissions()
     {
         return $this->hasMany(Permission::class);

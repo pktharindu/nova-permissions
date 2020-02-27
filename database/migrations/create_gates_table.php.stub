@@ -20,29 +20,29 @@ class CreateGatesTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create($tableNames['role_permission'], function (Blueprint $table) {
+        Schema::create($tableNames['role_permission'], function (Blueprint $table) use ($tableNames) {
             $table->unsignedBigInteger('role_id');
             $table->string('permission_slug');
             $table->timestamps();
             $table->foreign('role_id')
                   ->references('id')
-                  ->on('roles')
+                  ->on($tableNames['roles'])
                   ->onDelete('cascade');
             $table->primary(['role_id', 'permission_slug']);
         });
 
-        Schema::create($tableNames['role_user'], function (Blueprint $table) {
+        Schema::create($tableNames['role_user'], function (Blueprint $table) use ($tableNames) {
             $table->unsignedBigInteger('role_id');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
             $table->foreign('role_id')
                   ->references('id')
-                  ->on('roles')
+                  ->on($tableNames['roles'])
                   ->onDelete('cascade');
         
             $table->foreign('user_id')
                   ->references('id')
-                  ->on('users')
+                  ->on($tableNames['users'])
                   ->onDelete('cascade');
             $table->primary(['role_id', 'user_id']);
         });

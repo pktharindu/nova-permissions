@@ -40,18 +40,6 @@ You can install the package in to a Laravel app that uses [Nova](https://nova.la
 composer require pktharindu/nova-permissions
 ```
 
-Publish the Migration with the following command:
-
-```bash
-php artisan vendor:publish --provider="Pktharindu\NovaPermissions\ToolServiceProvider" --tag="migrations"
-```
-
-Migrate the Database:
-
-```bash
-php artisan migrate
-```
-
 Publish the Configuration with the following command:
 
 ```bash
@@ -105,6 +93,8 @@ return [
         'role_permission' => 'role_permission',
 
         'role_user' => 'role_user',
+        
+        'users' => 'users',
     ],
 
     /*
@@ -130,6 +120,18 @@ return [
     ],
 ];
 
+```
+
+Publish the Migration with the following command:
+
+```bash
+php artisan vendor:publish --provider="Pktharindu\NovaPermissions\ToolServiceProvider" --tag="migrations"
+```
+
+Migrate the Database:
+
+```bash
+php artisan migrate
 ```
 
 Next up, you must register the tool with Nova. This is typically done in the `tools` method of the `NovaServiceProvider`.
