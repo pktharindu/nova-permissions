@@ -40,6 +40,8 @@ return [
         'role_permission' => 'role_permission',
 
         'role_user' => 'role_user',
+        
+        'users' => 'users',
     ],
 
     /*
