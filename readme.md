@@ -232,7 +232,9 @@ A new resource called **Roles** will appear in your Nova app after installing th
 
 ### Create a Model Policy
 
-You can create Model Policy that works with Nova and check permissions.
+To check permissions, you can create `Model Policies` that works with Laravel Nova.
+
+> **Note**: This package doesn't come with any `Model Policies` built-in. The dummy permissions defined in the config are for your reference only. For each `Nova Resource` including the `Role` and `User` resources, that you want to authorize user actions against, you need to create a Model Policy. Please refer to the [Laravel Docs](https://laravel.com/docs/7.x/authorization#creating-policies) and [Laravel Nova Docs](https://nova.laravel.com/docs/3.0/resources/authorization.html#policies) for additional information.
 
 For Example: Create a new Post Policy with `php artisan make:policy PostPolicy` with the following code:
 
@@ -295,8 +297,6 @@ It should now work as exptected. Just create a Role, modify its Permissions and 
 > `view own posts` is superior to `view posts` and allows the User to only view his own posts.
 
 > `manage own posts` is superior to `manage posts` and allows the User to only manage his own posts.
-
-Please see the [Laravel Nova documentation](https://nova.laravel.com/docs/2.0/resources/authorization.html) for additional information.
 
 ## Customization
 
