@@ -2,7 +2,7 @@
 
 namespace Pktharindu\NovaPermissions\Nova;
 
-use Laravel\Nova\Resource;
+use App\Nova\Resource;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
