@@ -1,5 +1,7 @@
 # Laravel Nova Grouped Permissions (ACL)
 
+<img align="center" src="https://raw.githubusercontent.com/pktharindu/nova-permissions/master/docs/social-preview.png" alt="banner that says Nova Permissions">
+
 ![GitHub](https://img.shields.io/github/license/pktharindu/nova-permissions.svg?style=for-the-badge) ![Packagist](https://img.shields.io/packagist/dt/pktharindu/nova-permissions.svg?style=for-the-badge) ![Packagist](https://img.shields.io/packagist/v/pktharindu/nova-permissions.svg?style=for-the-badge)
 
 Add Permissions based authorization for your Nova installation via User-based Roles and Permissions. Roles are defined in the database whereas Permissions are defined in the code base. It allows you to group your Permissions into Groups and attach it to Users.
