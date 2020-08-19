@@ -18,7 +18,7 @@ class Role extends Resource
 
     public static function group()
     {
-        return config('nova-permissions.role_resource_group', 'Other');
+        return __(config('nova-permissions.role_resource_group', 'Other'));
     }
 
     public static $title = 'name';
