@@ -11,7 +11,7 @@
         <div
           v-for="(permissions, group) in field.options"
           :key="group"
-          class="mb-4 flex-auto mx-2"
+          class="mb-4 permission-group mx-2"
         >
           <h3 class="my-2">{{ __(group) }}</h3>
           <div
