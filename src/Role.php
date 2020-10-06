@@ -52,9 +52,11 @@ class Role extends Model
 
         $this->revokeAll();
 
-        collect($permissions)->map(function ($permission) {
+        collect($permissions)->each(function ($permission) {
             $this->grant($permission);
         });
+
+        $this-refresh();
     }
 
     /**
@@ -90,8 +92,6 @@ class Role extends Model
             'role_id'         => $this->id,
             'permission_slug' => $permission,
         ]);
-
-        return false;
     }
 
     /**
