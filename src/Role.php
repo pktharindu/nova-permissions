@@ -56,7 +56,7 @@ class Role extends Model
             $this->grant($permission);
         });
 
-        $this-refresh();
+        $this->setRelations([]);
     }
 
     /**
@@ -103,8 +103,12 @@ class Role extends Model
      */
     public function revoke($permission)
     {
-        if (\is_string($permission)) {
-            return Permission::findOrFail($permission)->delete();
+        if (\is_string($permission)) {           
+            Permission::findOrFail($permission)->delete();
+            
+            $this->setRelations([]);
+
+            return true;
         }
 
         return false;
@@ -115,7 +119,11 @@ class Role extends Model
      */
     public function revokeAll()
     {
-        return $this->getPermissions()->delete();
+        $this->getPermissions()->delete();
+        
+        $this->setRelations([]);
+        
+        return true;
     }
 
     /**
