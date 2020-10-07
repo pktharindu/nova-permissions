@@ -52,9 +52,11 @@ class Role extends Model
 
         $this->revokeAll();
 
-        collect($permissions)->map(function ($permission) {
+        collect($permissions)->each(function ($permission) {
             $this->grant($permission);
         });
+
+        $this->setRelations([]);
     }
 
     /**
@@ -90,8 +92,6 @@ class Role extends Model
             'role_id'         => $this->id,
             'permission_slug' => $permission,
         ]);
-
-        return false;
     }
 
     /**
@@ -103,8 +103,12 @@ class Role extends Model
      */
     public function revoke($permission)
     {
-        if (\is_string($permission)) {
-            return Permission::findOrFail($permission)->delete();
+        if (\is_string($permission)) {           
+            Permission::findOrFail($permission)->delete();
+            
+            $this->setRelations([]);
+
+            return true;
         }
 
         return false;
@@ -115,7 +119,11 @@ class Role extends Model
      */
     public function revokeAll()
     {
-        return $this->getPermissions()->delete();
+        $this->getPermissions()->delete();
+        
+        $this->setRelations([]);
+        
+        return true;
     }
 
     /**
