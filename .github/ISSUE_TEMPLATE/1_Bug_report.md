@@ -1,22 +1,14 @@
 ---
 name: "Bug report"
-about: "Report something that's broken.
+about: "Report something that's broken."
 ---
 
-<!--
-
-PLEASE READ: FILLING IN THE TEMPLATE IS REQUIRED!
-Issues that do not include enough information might not be picked up.
-
--->
+<!-- DO NOT THROW THIS AWAY. FILLING IN THE TEMPLATE IS REQUIRED! -->
+<!-- Issues that do not include enough information might not be picked up. -->
 
 ### Prerequisites
 
-<!--
-
-Put an X between the brackets if you have done the following:
-
--->
+<!-- Put an X between the brackets if you have done the following: -->
 
 * [ ] Able to reproduce the behaviour outside of your code, the problem is isolated to Laravel Excel.
 * [ ] Checked that your issue isn't already filed.
@@ -26,10 +18,10 @@ Put an X between the brackets if you have done the following:
 
 <!-- Please be as exact and complete as possible when proving version numbers -->
 
-* PHP version: <!-- put your PHP version here -->
-* Laravel version: <!-- put your Laravel version here -->
-* Nova version: <!-- put your Laravel Nova version here -->
-* Package version: <!-- put Laravel Excel AND Laravel Nova Excel package version here -->
+- PHP version: #.#.#
+- Laravel version: #.#.#
+- Nova version: #.#.#
+- Package version: #.#.#
 
 ### Description
 
