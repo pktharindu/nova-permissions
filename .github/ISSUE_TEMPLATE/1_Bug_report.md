@@ -10,7 +10,7 @@ about: "Report something that's broken."
 
 <!-- Put an X between the brackets if you have done the following: -->
 
-* [ ] Able to reproduce the behaviour outside of your code, the problem is isolated to Laravel Excel.
+* [ ] Able to reproduce the behaviour outside of your code, the problem is isolated to Nova Permissions.
 * [ ] Checked that your issue isn't already filed.
 * [ ] Checked if no PR was submitted that fixes this problem.
 
