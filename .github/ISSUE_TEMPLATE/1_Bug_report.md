@@ -1,3 +1,8 @@
+---
+name: "Bug report"
+about: "Report something that's broken.
+---
+
 <!--
 
 PLEASE READ: FILLING IN THE TEMPLATE IS REQUIRED!
