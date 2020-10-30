@@ -3,8 +3,6 @@
 PLEASE READ: FILLING IN THE TEMPLATE IS REQUIRED!
 Issues that do not include enough information might not be picked up.
 
-Please prefix your issue with one of the following: [BUG] [PROPOSAL] [QUESTION].
-
 -->
 
 ### Prerequisites
