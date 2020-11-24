@@ -163,7 +163,9 @@ class AuthServiceProvider extends ServiceProvider
 {
     use ValidatesPermissions;
 
-    // ...
+    protected $policies = [
+        \Pktharindu\NovaPermissions\Role::class => \App\Policies\RolePolicy::class,
+    ];
 
     public function boot()
     {
