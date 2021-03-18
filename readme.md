@@ -4,7 +4,7 @@
 
 ![GitHub](https://img.shields.io/github/license/pktharindu/nova-permissions.svg?style=for-the-badge) ![Packagist](https://img.shields.io/packagist/dt/pktharindu/nova-permissions.svg?style=for-the-badge) ![Packagist](https://img.shields.io/packagist/v/pktharindu/nova-permissions.svg?style=for-the-badge)
 
-Add Permissions based authorization for your Nova installation via User-based Roles and Permissions. Roles are defined in the database whereas Permissions are defined in the code base. It allows you to group your Permissions into Groups and attach it to Users.
+Add Permissions based authorization for your Nova installation via Role-Based Access Control (RBAC). Roles are defined in the database whereas Permissions are defined in the code base. It allows you to group your Permissions into Groups and attach it to Users.
 
 If you like this package, show some love by starring the repo. 🙏
 
