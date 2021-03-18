@@ -1,4 +1,4 @@
-# Laravel Nova Grouped Permissions (ACL)
+# Laravel Nova Grouped Permissions (RBAC)
 
 <img align="center" src="https://raw.githubusercontent.com/pktharindu/nova-permissions/master/docs/social-preview.png" alt="banner that says Nova Permissions">
 
@@ -18,7 +18,7 @@ and
 
 As a result, you won't see any _Permissions_ resource. The _Roles_ resource will get the permissions from the Gates defined in your code.
 
-- [Laravel Nova Grouped Permissions (ACL)](#laravel-nova-grouped-permissions-acl)
+- [Laravel Nova Grouped Permissions (RBAC)](#laravel-nova-grouped-permissions-rbac)
   - [Installation](#installation)
   - [Permissions with Groups](#permissions-with-groups)
     - [Index View](#index-view)
