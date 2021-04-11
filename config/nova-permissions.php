@@ -46,6 +46,21 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Visibility of Fields
+    |--------------------------------------------------------------------------
+    | These values should correspond to the options shown in the Laravel Nova
+    | docs called "Showing / Hiding Fields". This will control where inside
+    | your applicaiton each Field will be shown. Defaults are provided.
+    */
+
+    'field_visibilities' => [
+        'name' => 'showOnIndex',
+        'slug' => 'showOnIndex',
+        'users' => 'onlyOnIndex',
+    ],
+    
+    /*
+    |--------------------------------------------------------------------------
     | Application Permissions
     |--------------------------------------------------------------------------
     */
