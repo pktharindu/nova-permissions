@@ -51,13 +51,15 @@ class Role extends Resource
             TextWithSlug::make(__('Name'), 'name')
                 ->rules('required')
                 ->sortable()
-                ->slug('slug'),
+                ->slug('slug')
+                ->{config('nova-permissions.field_visibilities.name') ?? 'showOnIndex'}(),
 
             Slug::make(__('Slug'), 'slug')
                 ->rules('required')
                 ->creationRules('unique:' . config('nova-permissions.table_names.roles', 'roles'))
                 ->updateRules('unique:' . config('nova-permissions.table_names.roles', 'roles') . ',slug,{{resourceId}}')
-                ->sortable(),
+                ->sortable()
+                ->{config('nova-permissions.field_visibilities.slug') ?? 'showOnIndex'}(),
 
             Checkboxes::make(__('Permissions'), 'permissions')
                 ->withGroups()
@@ -72,7 +74,7 @@ class Role extends Resource
 
             Text::make(__('Users'), function () {
                 return \count($this->users);
-            })->onlyOnIndex(),
+            })->{config('nova-permissions.field_visibilities.users') ?? 'onlyOnIndex'}(),
 
             BelongsToMany::make(__('Users'), 'users', config('nova-permissions.user_resource', 'App\Nova\User'))
                 ->searchable(),
