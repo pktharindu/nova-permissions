@@ -57,7 +57,8 @@ class Role extends Resource
                 ->rules('required')
                 ->creationRules('unique:' . config('nova-permissions.table_names.roles', 'roles'))
                 ->updateRules('unique:' . config('nova-permissions.table_names.roles', 'roles') . ',slug,{{resourceId}}')
-                ->sortable(),
+                ->sortable()
+                ->hideFromIndex(),
 
             Checkboxes::make(__('Permissions'), 'permissions')
                 ->withGroups()
