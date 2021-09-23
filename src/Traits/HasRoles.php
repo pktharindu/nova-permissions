@@ -28,6 +28,43 @@ trait HasRoles
     {
         return $query->with('roles');
     }
+    
+    /**
+     * Determine if any of the assigned roles to this user
+     * have a specific role.
+     *
+     * @param string $role
+     *
+     * @return bool
+     */
+    public function hasRoleTo($role)
+    {
+        return $this->roles->contains('name', $role);
+    }
+
+    /**
+     * Determine if the model has any of the given role.
+     *
+     * @param array ...$roles
+     *
+     * @throws \Exception
+     *
+     * @return bool
+     */
+    public function hasAnyRole(...$roles): bool
+    {
+        if (\is_array($roles[0])) {
+            $roles = $roles[0];
+        }
+
+        foreach ($roles as $role) {
+            if ($this->hasRoleTo($role)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 
     /**
      * Determine if any of the assigned roles to this user
