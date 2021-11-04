@@ -150,7 +150,13 @@ public function tools()
 }
 ```
 
-After that, define the gates in the `boot` method of the `AuthServiceProvider` like below.
+Create a new policy:
+
+```bash
+php artisan make:policy RolePolicy --model=\Pktharindu\NovaPermissions\Role
+```
+
+After that, register the `RolePolicy` along with any other policies you may have and define the gates in the `boot` method of the `AuthServiceProvider` like below.
 
 ```php
 // in app/Providers/AuthServiceProvider.php
