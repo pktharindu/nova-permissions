@@ -18,7 +18,6 @@ class NovaPermissions extends Tool
     public function boot()
     {
         Nova::script('NovaPermissions', __DIR__.'/../dist/js/tool.js');
-        Nova::style('NovaPermissions', __DIR__.'/../dist/css/tool.css');
 
         if (! $this->customRole) {
             Nova::resources([
