@@ -12,7 +12,7 @@ class Checkboxes extends Field
      *
      * @var string
      */
-    public $component = 'FieldCheckboxes';
+    public $component = 'field-checkboxes';
 
     /**
      * Specify the available options.
