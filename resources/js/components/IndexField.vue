@@ -24,8 +24,8 @@
         methods: {
             optionClass(option) {
                 return {
-                    'bg-success': this.field.value ? this.field.value.includes(option) : false,
-                    'bg-danger': this.field.value ? !this.field.value.includes(option) : true,
+                    'bg-green-500': this.field.value ? this.field.value.includes(option) : false,
+                    'bg-red-500': this.field.value ? !this.field.value.includes(option) : true,
                 }
             },
         },

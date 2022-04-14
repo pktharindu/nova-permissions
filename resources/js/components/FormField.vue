@@ -2,7 +2,7 @@
 
     <default-field class="nova-permissions" :field="field" :full-width-content="true">
 
-        <template slot="field">
+        <template #field>
 
             <div class="w-full mb-6">
 
@@ -29,7 +29,7 @@
                      :key="group"
                      class="mb-4 permission-group mx-2">
 
-                    <h3 class="mb-3">{{ __(group) }}</h3>
+                    <h3 class="mb-3 font-bold text-lg">{{ __(group) }}</h3>
 
                     <div v-for="(permission, option) in permissions"
                          :key="permission.option"
@@ -115,7 +115,7 @@
                 // Todo: Without Groups
             },
             toggleSelection() {
-                console.log(this.value)
+                // console.log(this.value)
                 if (this.value.length) {
                     this.uncheckAll()
                 } else {
@@ -132,7 +132,7 @@
             },
             uncheck(option) {
                 if (this.isChecked(option)) {
-                    this.$set(this, 'value', this.value.filter(item => item != option))
+                    this.value = this.value.filter(item => item != option)
                 }
             },
             toggleOption(option) {

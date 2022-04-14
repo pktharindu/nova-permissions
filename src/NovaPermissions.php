@@ -2,6 +2,7 @@
 
 namespace Pktharindu\NovaPermissions;
 
+use Illuminate\Http\Request;
 use Laravel\Nova\Nova;
 use Laravel\Nova\Tool;
 use Pktharindu\NovaPermissions\Nova\Role;
@@ -38,5 +39,10 @@ class NovaPermissions extends Tool
         $this->roleResource = $roleResource;
 
         return $this;
+    }
+
+    public function menu(Request $request)
+    {
+        return null;
     }
 }

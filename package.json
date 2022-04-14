@@ -8,14 +8,14 @@
         "production": "mix --production"
     },
     "devDependencies": {
-        "cross-env": "^7.0.3",
+        "@inertiajs/inertia": "^0.11.0",
+        "@vue/babel-plugin-jsx": "^1.1.1",
+        "@vue/compiler-sfc": "^3.2.22",
+        "form-backend-validation": "^2.4.0",
         "laravel-mix": "^6.0.41",
-        "laravel-nova": "^1.12.3",
-        "resolve-url-loader": "^5.0.0",
         "sass": "^1.42.1",
         "sass-loader": "^12.1.0",
-        "vue": "^2.6.14",
-        "vue-loader": "^15.9.8",
-        "vue-template-compiler": "^2.6.14"
+        "vue-loader": "^16.2.0",
+        "vuex": "^4.0.2"
     }
 }

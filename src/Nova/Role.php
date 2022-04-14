@@ -2,9 +2,9 @@
 
 namespace Pktharindu\NovaPermissions\Nova;
 
+use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Resource;
 use Laravel\Nova\Fields\ID;
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Benjaminhirsch\NovaSlugField\Slug;
 use Laravel\Nova\Fields\BelongsToMany;
@@ -33,17 +33,17 @@ class Role extends Resource
         'users',
     ];
 
-    public function actions(Request $request)
+    public function actions(NovaRequest $request)
     {
         return [];
     }
 
-    public function cards(Request $request)
+    public function cards(NovaRequest $request)
     {
         return [];
     }
 
-    public function fields(Request $request)
+    public function fields(NovaRequest $request)
     {
         return [
             ID::make()->sortable(),
@@ -80,7 +80,7 @@ class Role extends Resource
         ];
     }
 
-    public function filters(Request $request)
+    public function filters(NovaRequest $request)
     {
         return [];
     }
@@ -90,7 +90,7 @@ class Role extends Resource
         return __('Roles');
     }
 
-    public function lenses(Request $request)
+    public function lenses(NovaRequest $request)
     {
         return [];
     }
