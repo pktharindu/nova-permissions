@@ -2,14 +2,13 @@
 
 namespace Pktharindu\NovaPermissions\Nova;
 
+use Laravel\Nova\Fields\Slug;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Resource;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Benjaminhirsch\NovaSlugField\Slug;
 use Laravel\Nova\Fields\BelongsToMany;
 use Pktharindu\NovaPermissions\Checkboxes;
-use Benjaminhirsch\NovaSlugField\TextWithSlug;
 use Pktharindu\NovaPermissions\Role as RoleModel;
 
 class Role extends Resource
@@ -48,12 +47,12 @@ class Role extends Resource
         return [
             ID::make()->sortable(),
 
-            TextWithSlug::make(__('Name'), 'name')
+            Text::make(__('Name'), 'name')
                 ->rules('required')
-                ->sortable()
-                ->slug('slug'),
+                ->sortable(),
 
             Slug::make(__('Slug'), 'slug')
+                ->from('name')
                 ->rules('required')
                 ->creationRules('unique:' . config('nova-permissions.table_names.roles', 'roles'))
                 ->updateRules('unique:' . config('nova-permissions.table_names.roles', 'roles') . ',slug,{{resourceId}}')
