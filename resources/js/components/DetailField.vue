@@ -2,13 +2,15 @@
 
     <panel-item class="nova-permissions" :field="field">
 
-        <div slot="value" class="text-90 flex">
+      <template #value>
+
+        <div class="flex">
 
             <div class="w-full flex flex-wrap -mx-2" v-if="field.withGroups">
 
                 <div v-for="(permissions, group) in field.options" :key="group" class="mb-4 permission-group mx-2">
 
-                    <h3 class="mb-3">{{ __(group) }}</h3>
+                    <h3 class="mb-3 font-bold text-lg">{{ __(group) }}</h3>
 
                     <div v-for="(permission, option) in permissions"
                          :key="option"
@@ -41,6 +43,8 @@
 
         </div>
 
+      </template>
+
     </panel-item>
 
 </template>
@@ -52,10 +56,10 @@
         methods: {
             optionClass(option) {
                 return {
-                    'bg-success': this.field.value
+                    'bg-green-500': this.field.value
                         ? this.field.value.includes(option)
                         : false,
-                    'bg-danger': this.field.value
+                    'bg-red-500': this.field.value
                         ? !this.field.value.includes(option)
                         : true,
                 }

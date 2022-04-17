@@ -1,5 +1,7 @@
 let mix = require('laravel-mix')
+require('./mix.js');
 
 mix.setPublicPath('dist')
-   .vue({ version: 2 })
-   .js('resources/js/tool.js', 'js')
+    .js('resources/js/tool.js', 'js')
+    .vue({ version: 3 })
+    .nova('pktharindu/nova-permissions')

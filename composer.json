@@ -22,9 +22,17 @@
     }
   ],
   "require": {
-    "php": ">=7.1.0|^8.0",
-    "benjaminhirsch/nova-slug-field": "^1.2"
+    "php": ">=7.1.0|^8.0"
   },
+  "require-dev": {
+    "laravel/nova": "^4.0"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://nova.laravel.com"
+    }
+  ],
   "autoload": {
     "psr-4": {
       "Pktharindu\\NovaPermissions\\": "src/"
