@@ -6,6 +6,10 @@
 
 Add Permissions based authorization for your Nova installation via Role-Based Access Control (RBAC). Roles are defined in the database whereas Permissions are defined in the code base. It allows you to group your Permissions into Groups and attach it to Users.
 
+| Nova 4    | v3.x |
+|-----------|------|
+| <= Nova 3 | v2.x |
+
 If you like this package, show some love by starring the repo. 🙏
 
 This package is inspired by [Silvanite\Brandenburg](https://github.com/Silvanite/brandenburg) as it has clear separation of concerns.
