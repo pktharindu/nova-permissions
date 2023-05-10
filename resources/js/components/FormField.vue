@@ -40,7 +40,7 @@
                                              @input="toggleOption(permission.option)"
                                              :title="permission.description">
 
-                            {{ permission.label }}
+                            <span>{{ permission.label }}</span>
 
                         </checkbox-with-label>
 
