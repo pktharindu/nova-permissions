@@ -27,6 +27,15 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Key type value for the Role model
+    |--------------------------------------------------------------------------
+    | Allows to use nova-permissions with all UUID based migrations
+    */
+
+    'role_model_key_type' =>  'int',
+
+    /*
+    |--------------------------------------------------------------------------
     | Database table names
     |--------------------------------------------------------------------------
     | When using the "HasRoles" trait from this package, we need to know which
