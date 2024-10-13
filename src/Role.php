@@ -8,6 +8,8 @@ use Pktharindu\NovaPermissions\Policies\Policy;
 
 class Role extends Model
 {
+    protected $keyType = config('nova-permissions.key_type', 'int');
+
     protected $fillable = [
         'slug',
         'name',
